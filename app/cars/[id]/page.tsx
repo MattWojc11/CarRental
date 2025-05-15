@@ -278,7 +278,7 @@ export default function CarDetailsPage() {
       router.push('/cars');
     }
     setLoading(false);
-  }, [carId, router]);
+  }, [carId, router, carsData]);
 
   // Obsługa zmiany w formularzu
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -317,7 +317,7 @@ export default function CarDetailsPage() {
       });
       
       setSubmitSuccess(true);
-    } catch (error) {
+    } catch (_) {
       setSubmitError('Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie później.');
     } finally {
       setIsSubmitting(false);

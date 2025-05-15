@@ -169,7 +169,7 @@ export default function CarsPage() {
     });
     
     setFilteredCars(result);
-  }, [selectedBrand, sortOrder, sortBy]);
+  }, [selectedBrand, sortOrder, sortBy, carsData]);
 
   // Aktualizacja filtru marki
   const handleBrandChange = (brand: string) => {

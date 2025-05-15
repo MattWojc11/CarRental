@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function VoucherPage() {
   const [voucherAmount, setVoucherAmount] = useState(1000);
@@ -275,9 +276,10 @@ export default function VoucherPage() {
         {/* Tło ze zdjęciem */}
         <div className="absolute inset-0 opacity-20 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10"></div>
-          <img 
+          <Image 
             src="/images/r81.jpg" 
             alt="Audi R8 w tle" 
+            fill
             className="w-full h-full object-cover" 
           />
         </div>
