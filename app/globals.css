@@ -24,3 +24,87 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  /* Animation for subtle background zoom effect */
+  .animate-subtle-zoom {
+    animation: subtle-zoom 20s ease-in-out infinite alternate;
+  }
+
+  /* Animation for moving lines */
+  .animate-line-left {
+    animation: line-left 15s ease-in-out infinite;
+  }
+  
+  .animate-line-right {
+    animation: line-right 15s ease-in-out infinite;
+  }
+  
+  .animate-line-up {
+    animation: line-up 15s ease-in-out infinite;
+  }
+  
+  .animate-line-down {
+    animation: line-down 15s ease-in-out infinite;
+  }
+
+  /* Scroll indicator animation */
+  .animate-pulse-down {
+    animation: pulse-down 2s ease-in-out infinite;
+  }
+}
+
+/* Define the animations */
+@keyframes subtle-zoom {
+  0% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes line-left {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes line-right {
+  0%, 100% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes line-up {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes line-down {
+  0%, 100% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes pulse-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
