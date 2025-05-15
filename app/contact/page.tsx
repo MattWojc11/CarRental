@@ -40,7 +40,7 @@ export default function ContactPage() {
       });
       
       setSubmitSuccess(true);
-    } catch (_) {
+    } catch {
       setSubmitError('Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie później.');
     } finally {
       setIsSubmitting(false);

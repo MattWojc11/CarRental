@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
@@ -64,8 +64,8 @@ export default function CarDetailsPage() {
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
   const [submitError, setSubmitError] = useState<string>('');
   
-  // Przykładowa baza danych samochodów
-  const carsData: Car[] = [
+  // Przykładowa baza danych samochodów - opakowana w useMemo dla optymalizacji
+  const carsData = useMemo(() => [
     {
       id: 'ferrari-f8',
       name: 'Ferrari F8 Tributo',
@@ -264,7 +264,7 @@ export default function CarDetailsPage() {
         '/images/porshgt3.jpg'
       ]
     },
-  ];
+  ], []);
   
   // Pobranie danych samochodu na podstawie ID
   useEffect(() => {
@@ -317,7 +317,7 @@ export default function CarDetailsPage() {
       });
       
       setSubmitSuccess(true);
-    } catch (_) {
+    } catch {
       setSubmitError('Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie później.');
     } finally {
       setIsSubmitting(false);

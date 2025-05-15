@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -25,8 +25,8 @@ type SortKey = 'pricePerDay' | 'horsepower' | 'acceleration';
 type SortOrder = 'asc' | 'desc';
 
 export default function CarsPage() {
-  // Rozszerzony model danych samochodów z dodatkowymi parametrami technicznymi
-  const carsData: Car[] = [
+  // Rozszerzony model danych samochodów z dodatkowymi parametrami technicznymi - opakowany w useMemo
+  const carsData = useMemo(() => [
     {
       id: 'ferrari-f8',
       name: 'Ferrari F8 Tributo',
@@ -139,7 +139,7 @@ export default function CarsPage() {
       features: ['Klimatyzacja', 'System audio Burmester', 'Carbon fiber body', 'AMG Performance'],
       image: '/images/mgtr1.jpg'
     },
-  ];
+  ], []);
 
   // Stan dla filtrów
   const [selectedBrand, setSelectedBrand] = useState<string>('Wszystkie');
